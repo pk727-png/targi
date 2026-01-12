@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 <style>
         /* ===== RESETOWANIE STYLÓW ===== */
         * {
@@ -11,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         /* ===== GŁÓWNE STYLE STRONY ===== */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,7 +42,7 @@
         .hero .event-details {
             font-size: 1.2rem;
             margin-bottom: 40px;
-        }
+		}
         .hero .event-details span {
             margin: 0 15px;
             display: inline-block;
@@ -228,7 +226,6 @@
             margin-bottom: 20px;
             text-align: left;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
