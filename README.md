@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -300,16 +299,16 @@
     <!-- Tutaj zmień: tytuł, podtytuł, datę, godzinę i lokalizację -->
     <section class="hero">
         <div class="container">
-            <h1>Konferencja Technologii 2026</h1>
+            <h1>Konferencja  2026</h1>
             <!-- ↑ Zmień nazwę swojego wydarzenia tutaj -->
-            <p class="subtitle">Poznaj najnowsze trendy w świecie technologii</p>
+            <p class="subtitle">Poznaj najnowsze trendy w wojsku</p>
             <!-- ↑ Zmień opis wydarzenia tutaj -->
             <div class="event-details">
-                <span>📅 15 marca 2026</span>
+                <span>📅 marzec 2026</span>
                 <!-- ↑ Zmień datę tutaj -->
                 <span>🕐 10:00 - 18:00</span>
                 <!-- ↑ Zmień godzinę tutaj -->
-                <span>📍 Warszawa, Centrum Konferencyjne</span>
+                <span>📍 Gliwice, PreZero Arena Gliwice </span>
                 <!-- ↑ Zmień lokalizację tutaj -->
             </div>
             <a href="#register" class="btn">Zarejestruj się teraz</a>
@@ -381,16 +380,16 @@
                     <div class="schedule-title">Rejestracja i powitalna kawa</div>
                     <!-- ↑ Zmień tytuł aktywności -->
                     <div class="schedule-description">
-                        Odbiór pakietów uczestnika, networking przy porannej kawie
+                        Odbiór pakietów uczestnika, przy porannej kawie
                     </div>
                     <!-- ↑ Zmień opis aktywności -->
                 </div>
                 <!-- POZYCJA HARMONOGRAMU 2 -->
                 <div class="schedule-item">
                     <div class="schedule-time">10:30 - 12:00</div>
-                    <div class="schedule-title">Keynote: Przyszłość technologii</div>
+                    <div class="schedule-title">Przyszłość wojska</div>
                     <div class="schedule-description">
-                        Główne wystąpienie od eksperta branżowego o trendach technologicznych na najbliższe lata
+                        Główne wystąpienie od eksperta branżowego o trendach wojskowych na najbliższe lata
                     </div>
                 </div>
                 <!-- POZYCJA HARMONOGRAMU 3 -->
@@ -428,35 +427,24 @@
             <h2>Lokalizacja</h2>
             <div class="location-content">
                 <div class="location-details">
-                    <strong>Centrum Konferencyjne "Nowa Era"</strong><br>
+                    <strong>PreZero Arena Gliwice </strong><br>
                     <!-- ↑ Zmień nazwę miejsca -->
-                    ul. Przykładowa 123<br>
-                    00-001 Warszawa<br>
+                    ul. Akademicka 50<br>
+                    44-100 Gliwice<br>
                     Polska
                     <!-- ↑ Zmień adres -->
                 </div>
                 <p>Dogodna lokalizacja w centrum miasta, 5 minut spacerem od stacji metra.</p>
-                <!-- ↑ Zmień dodatkowe informacje o lokalizacji -->
-                <!-- OPCJONALNIE: Dodaj Google Maps -->
-                <!-- Odkomentuj poniższy kod i wklej swój link z Google Maps -->
-                <!--
                 <div class="map-container">
-                    <iframe 
-                        src="TUTAJ_WKLEJ_LINK_DO_GOOGLE_MAPS"
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2549.3302449525463!2d18.683518811164266!3d50.28576299909061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471131059f63c95f%3A0xcdcf0602967c2604!2sPreZero%20Arena%20Gliwice!5e0!3m2!1spl!2spl!4v1768247983905!5m2!1spl!2spl" 
+						width="600"
+						height="450" 
+						style="border:0;" 
+						allowfullscreen="" 
+						loading="lazy" 
+						referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
                 </div>
-                -->
-                <!-- Jak uzyskać link do Google Maps:
-                     1. Wejdź na maps.google.com
-                     2. Znajdź swoją lokalizację
-                     3. Kliknij "Udostępnij" -> "Osadź mapę"
-                     4. Skopiuj link z iframe src="" i wklej powyżej
-                -->
             </div>
         </div>
     </section>
