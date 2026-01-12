@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
+    <title>Konferencja 2026 - Przyszłość Wojska</title>
+    <style>
         /* ===== RESETOWANIE STYLÓW ===== */
         * {
             margin: 0;
@@ -16,9 +18,8 @@
             color: #333;
         }
         /* ===== SEKCJA NAGŁÓWKA (HERO) ===== */
-        /* To jest główna sekcja na górze strony z najważniejszymi informacjami */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Zmień kolory gradientu tutaj */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -29,19 +30,19 @@
             align-items: center;
         }
         .hero h1 {
-            font-size: 3rem; /* Rozmiar głównego tytułu */
+            font-size: 3rem;
             margin-bottom: 20px;
             font-weight: 700;
         }
         .hero .subtitle {
-            font-size: 1.5rem; /* Rozmiar podtytułu */
+            font-size: 1.5rem;
             margin-bottom: 30px;
             opacity: 0.95;
         }
         .hero .event-details {
             font-size: 1.2rem;
             margin-bottom: 40px;
-		}
+        }
         .hero .event-details span {
             margin: 0 15px;
             display: inline-block;
@@ -50,7 +51,7 @@
         .btn {
             display: inline-block;
             padding: 15px 40px;
-            background-color: #ff6b6b; /* Kolor przycisku - zmień tutaj */
+            background-color: #ff6b6b;
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -64,16 +65,16 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        /* ===== KONTENER (ogranicza szerokość treści) ===== */
+        /* ===== KONTENER ===== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* ==== SEKCJA O WYDARZENIU ===== */
+        /* ===== SEKCJA O WYDARZENIU ===== */
         .about-section {
             padding: 80px 20px;
-            background-color: #f8f9fa; /* Jasnoszare tło */
+            background-color: #f8f9fa;
         }
         .about-section h2 {
             text-align: center;
@@ -87,7 +88,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
-        /* ===== SEKCJA Z KORZYŚCIAMI/CECHAMI ===== */
+        /* ===== SEKCJA Z KORZYŚCIAMI ===== */
         .features-section {
             padding: 80px 20px;
             background-color: white;
@@ -100,7 +101,7 @@
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Automatyczne dostosowanie kolumn */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
@@ -115,7 +116,7 @@
             transform: translateY(-10px);
         }
         .feature-icon {
-            font-size: 3rem; /* Rozmiar ikony (emoji) */
+            font-size: 3rem;
             margin-bottom: 20px;
         }
         .feature-card h3 {
@@ -187,7 +188,6 @@
             margin-bottom: 30px;
             line-height: 1.8;
         }
-        /* Jeśli chcesz dodać mapę Google Maps, użyj tego kontenera */
         .map-container {
             width: 100%;
             height: 400px;
@@ -196,7 +196,11 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-        /* ===== SEKCJA REJESTRACJI (CTA) ===== */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+        /* ===== SEKCJA REJESTRACJI ===== */
         .cta-section {
             padding: 100px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -266,17 +270,21 @@
         .footer a:hover {
             text-decoration: underline;
         }
-        /* ===== RESPONSYWNOŚĆ (wygląd na telefonach) ===== */
+        /* ===== RESPONSYWNOŚĆ ===== */
         @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+                min-height: 400px;
+            } 
             .hero h1 {
                 font-size: 2rem;
-            }
+            } 
             .hero .subtitle {
                 font-size: 1.2rem;
-            }
+            } 
             .hero .event-details {
                 font-size: 1rem;
-            }
+            } 
             .hero .event-details span {
                 display: block;
                 margin: 10px 0;
@@ -287,36 +295,61 @@
             .location-section h2,
             .cta-section h2 {
                 font-size: 2rem;
+            } 
+            .about-section,
+            .features-section,
+            .schedule-section,
+            .location-section {
+                padding: 60px 20px;
+            }
+            .cta-section {
+                padding: 60px 20px;
             }
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .registration-form {
+                padding: 30px 20px;
+            }
+            .map-container {
+                height: 300px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .about-content,
+            .feature-card p,
+            .schedule-description {
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- ===== SEKCJA HERO (GŁÓWNA) ===== -->
-    <!-- Tutaj zmień: tytuł, podtytuł, datę, godzinę i lokalizację -->
     <section class="hero">
         <div class="container">
-            <h1>Konferencja  2026</h1>
-            <!-- ↑ Zmień nazwę swojego wydarzenia tutaj -->
+            <h1>Konferencja 2026</h1>
             <p class="subtitle">Poznaj najnowsze trendy w wojsku</p>
-            <!-- ↑ Zmień opis wydarzenia tutaj -->
             <div class="event-details">
                 <span>📅 marzec 2026</span>
-                <!-- ↑ Zmień datę tutaj -->
                 <span>🕐 10:00 - 18:00</span>
-                <!-- ↑ Zmień godzinę tutaj -->
-                <span>📍 Gliwice, PreZero Arena Gliwice </span>
-                <!-- ↑ Zmień lokalizację tutaj -->
+                <span>📍 Gliwice, PreZero Arena Gliwice</span>
             </div>
             <a href="#register" class="btn">Zarejestruj się teraz</a>
-            <!-- ↑ Ten przycisk przewija stronę do formularza rejestracji -->
         </div>
     </section>
     <!-- ===== SEKCJA O WYDARZENIU ===== -->
-    <!-- Tutaj opisz szczegółowo swoje wydarzenie -->
     <section class="about-section">
         <div class="container">
             <h2>O Wydarzeniu</h2>
@@ -326,65 +359,49 @@
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-                <!-- ↑ Zmień ten tekst na opis swojego wydarzenia -->
                 <p style="margin-top: 20px;">
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
                     fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
                     culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <!-- ↑ Możesz dodać więcej akapitów według potrzeb -->
             </div>
         </div>
     </section>
-    <!-- ===== SEKCJA KORZYŚCI/FUNKCJI ===== -->
-    <!-- Tutaj wymień 3 główne korzyści lub cechy wydarzenia -->
+    <!-- ===== SEKCJA KORZYŚCI ===== -->
     <section class="features-section">
         <div class="container">
             <h2>Dlaczego warto wziąć udział?</h2>
             <div class="features-grid">
-                <!-- KARTA 1 -->
                 <div class="feature-card">
                     <div class="feature-icon">🎤</div>
-                    <!-- ↑ Zmień emoji na odpowiednią ikonę -->
                     <h3>Inspirujący prelegenci</h3>
-                    <!-- ↑ Zmień tytuł korzyści -->
                     <p>Posłuchaj ekspertów branżowych, którzy podzielą się swoją wiedzą i doświadczeniem z pierwszej ręki.</p>
-                    <!-- ↑ Zmień opis korzyści -->
                 </div>
-                <!-- KARTA 2 -->
                 <div class="feature-card">
                     <div class="feature-icon">🤝</div>
                     <h3>Networking</h3>
                     <p>Poznaj innych uczestników, nawiąż cenne kontakty biznesowe i rozwijaj swoją sieć zawodową.</p>
                 </div>
-                <!-- KARTA 3 -->
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
                     <h3>Praktyczna wiedza</h3>
                     <p>Zdobądź konkretne narzędzia i strategie, które możesz wdrożyć natychmiast po wydarzeniu.</p>
                 </div>
-                <!-- Możesz dodać więcej kart kopiując strukturę powyżej -->
             </div>
         </div>
     </section>
     <!-- ===== SEKCJA HARMONOGRAMU ===== -->
-    <!-- Tutaj umieść plan wydarzenia z godzinami -->
     <section class="schedule-section">
         <div class="container">
             <h2>Harmonogram</h2>
             <div class="schedule-timeline">
-                <!-- POZYCJA HARMONOGRAMU 1 -->
                 <div class="schedule-item">
                     <div class="schedule-time">10:00 - 10:30</div>
-                    <!-- ↑ Zmień godzinę -->
                     <div class="schedule-title">Rejestracja i powitalna kawa</div>
-                    <!-- ↑ Zmień tytuł aktywności -->
                     <div class="schedule-description">
                         Odbiór pakietów uczestnika, przy porannej kawie
                     </div>
-                    <!-- ↑ Zmień opis aktywności -->
                 </div>
-                <!-- POZYCJA HARMONOGRAMU 2 -->
                 <div class="schedule-item">
                     <div class="schedule-time">10:30 - 12:00</div>
                     <div class="schedule-title">Przyszłość wojska</div>
@@ -392,7 +409,6 @@
                         Główne wystąpienie od eksperta branżowego o trendach wojskowych na najbliższe lata
                     </div>
                 </div>
-                <!-- POZYCJA HARMONOGRAMU 3 -->
                 <div class="schedule-item">
                     <div class="schedule-time">12:00 - 13:00</div>
                     <div class="schedule-title">Przerwa obiadowa</div>
@@ -400,7 +416,6 @@
                         Lunch i swobodny networking
                     </div>
                 </div>
-                <!-- POZYCJA HARMONOGRAMU 4 -->
                 <div class="schedule-item">
                     <div class="schedule-time">13:00 - 15:00</div>
                     <div class="schedule-title">Warsztaty praktyczne</div>
@@ -408,7 +423,6 @@
                         Hands-on sesje w małych grupach - wybierz warsztat, który Cię interesuje
                     </div>
                 </div>
-                <!-- POZYCJA HARMONOGRAMU 5 -->
                 <div class="schedule-item">
                     <div class="schedule-time">15:00 - 18:00</div>
                     <div class="schedule-title">Panel dyskusyjny i Q&A</div>
@@ -416,49 +430,39 @@
                         Dyskusja z ekspertami, pytania od publiczności i podsumowanie
                     </div>
                 </div>
-                <!-- Dodaj więcej pozycji kopiując strukturę powyżej -->
             </div>
         </div>
     </section>
     <!-- ===== SEKCJA LOKALIZACJI ===== -->
-    <!-- Tutaj podaj szczegóły dotyczące miejsca wydarzenia -->
     <section class="location-section">
         <div class="container">
             <h2>Lokalizacja</h2>
             <div class="location-content">
                 <div class="location-details">
-                    <strong>PreZero Arena Gliwice </strong><br>
-                    <!-- ↑ Zmień nazwę miejsca -->
+                    <strong>PreZero Arena Gliwice</strong><br>
                     ul. Akademicka 50<br>
                     44-100 Gliwice<br>
                     Polska
-                    <!-- ↑ Zmień adres -->
                 </div>
                 <p>Dogodna lokalizacja w centrum miasta, 5 minut spacerem od stacji metra.</p>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2549.3302449525463!2d18.683518811164266!3d50.28576299909061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471131059f63c95f%3A0xcdcf0602967c2604!2sPreZero%20Arena%20Gliwice!5e0!3m2!1spl!2spl!4v1768247983905!5m2!1spl!2spl" 
-						width="600"
-						height="450" 
-						style="border:0;" 
-						allowfullscreen="" 
-						loading="lazy" 
-						referrerpolicy="no-referrer-when-downgrade">
-					</iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2549.3302449525463!2d18.683518811164266!3d50.28576299909061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471131059f63c95f%3A0xcdcf0602967c2604!2sPreZero%20Arena%20Gliwice!5e0!3m2!1spl!2spl!4v1768247983905!5m2!1spl!2spl" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ===== SEKCJA REJESTRACJI (CTA) ===== -->
-    <!-- Tutaj znajduje się formularz rejestracyjny -->
+    <!-- ===== SEKCJA REJESTRACJI ===== -->
     <section class="cta-section" id="register">
         <div class="container">
             <h2>Zarejestruj się już dziś!</h2>
             <p>Liczba miejsc ograniczona. Nie przegap tej wyjątkowej okazji!</p>
-            <!-- ↑ Zmień zachętę do rejestracji -->
-            <!-- FORMULARZ REJESTRACJI -->
             <form class="registration-form" action="#" method="POST">
-                <!-- ↑ WAŻNE: Zmień action="#" na adres swojego skryptu do obsługi formularza
-                     Możesz użyć usług takich jak Formspree.io, Google Forms, lub własnego backendu --> 
                 <div class="form-group">
                     <label for="name">Imię i nazwisko *</label>
                     <input type="text" id="name" name="name" required>
@@ -487,23 +491,18 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Nazwa Twojej Organizacji. Wszelkie prawa zastrzeżone.</p>
-            <!-- ↑ Zmień nazwę organizacji i rok -->
             <p>
                 Kontakt: <a href="mailto:kontakt@example.com">kontakt@example.com</a> | 
                 Tel: +48 123 456 789
             </p>
-            <!-- ↑ Zmień dane kontaktowe -->
             <p>
                 <a href="#">Polityka prywatności</a> | 
                 <a href="#">Regulamin</a>
             </p>
-            <!-- ↑ Możesz dodać linki do dodatkowych stron -->
         </div>
-		</footer>
+    </footer>
     <!-- ===== SKRYPT DO PŁYNNEGO PRZEWIJANIA ===== -->
     <script>
-        // Ten skrypt sprawia, że kliknięcie w przycisk "Zarejestruj się" 
-        // płynnie przewija stronę do formularza
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -516,17 +515,10 @@
                 }
             });
         });
-        // OPCJONALNIE: Obsługa formularza
-        // Możesz tutaj dodać kod JavaScript do walidacji lub wysyłania formularza
         document.querySelector('.registration-form').addEventListener('submit', function(e) {
-            // e.preventDefault(); // Odkomentuj jeśli chcesz obsługiwać formularz przez JavaScript  
-            // Tutaj możesz dodać własną logikę, np.:
-            // - Walidację pól
-            // - Wysyłanie danych przez AJAX
-            // - Integrację z zewnętrznymi usługami
-            // Przykład prostego alertu po wysłaniu:
-            // alert('Dziękujemy za rejestrację!');
+            // e.preventDefault();
+            // Tutaj możesz dodać własną logikę obsługi formularza
         });
     </script>
-</head>
+</body>
 </html>
