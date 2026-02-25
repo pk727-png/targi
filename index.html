@@ -21,8 +21,7 @@
         
         /* ===== SEKCJA NAGŁÓWKA (HERO) ===== */
         .hero {
-          /*  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('plakat.jpg') center/contain no-repeat; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -93,6 +92,27 @@
         
         /* ===== SEKCJA O WYDARZENIU ===== */
         .about-section {
+        padding: 80px 20px;
+        background: 
+            linear-gradient(to right, 
+                rgba(248, 249, 250, 0.95) 0%, 
+                rgba(248, 249, 250, 0.95) 60%, 
+                transparent 60%),
+            url('plakat.jpg') right center/contain no-repeat,
+            #f8f9fa;
+        min-height: 600px;
+        }
+
+        /* Responsywność */
+        @media (max-width: 968px) {
+            .about-section {
+                background: url('plakat.jpg') top center/contain no-repeat, #f8f9fa;
+                padding-top: 600px; /* Miejsce na plakat u góry */
+            }
+        }
+        
+        
+        /*.about-section {
             padding: 80px 20px;
             background-color: #f8f9fa;
         }
@@ -115,7 +135,7 @@
         .about-content p {
             margin-bottom: 20px;
         }
-        
+        /*
         /* ===== SEKCJA Z KORZYŚCIAMI ===== */
         .features-section {
             padding: 80px 20px;
