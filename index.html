@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Młodzi dla obronności</title>
+    <style>
+        /* ===== RESETOWANIE STYLÓW ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* ===== GŁÓWNE STYLE STRONY ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* ===== SEKCJA NAGŁÓWKA (HERO) ===== */
+        .hero {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 50%, #1a3a52 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero .event-details {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .hero .event-details span {
+            margin: 0 15px;
+            display: inline-block;
+        }
+        
+        /* ===== PRZYCISKI ===== */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #d4a24a;
+            color: #1a3a52;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background-color: #c89338;
+        }
+        
+        .btn-calendar {
+            background-color: #d4a24a;
+            margin: 10px;
+        }
+        
+        .btn-calendar:hover {
+            background-color: #c89338;
+        }
+        
+        /* ===== KONTENER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== SEKCJA O WYDARZENIU ===== */
+        .about-section {
+            padding: 80px 40px 80px 20px;
+            background: 
+                linear-gradient(to right, 
+                    rgba(235, 240, 245, 0.98) 0%, 
+                    rgba(235, 240, 245, 0.98) 52%, 
+                    transparent 56%),
+                url('plakat.jpg') calc(100% - 40px) center/auto 85% no-repeat,
+                linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .about-text {
+            max-width: 50%;
+            padding-right: 80px;
+        }
+        
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a3a52;
+            font-weight: 700;
+        }
+        
+        .about-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #2c3e50;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Responsywność */
+        @media (max-width: 968px) {
+            .about-section {
+                background: url('plakat.jpg') top center/contain no-repeat, 
+                            linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+                padding: 650px 20px 80px 20px;
+                display: block;
+            }
+            
+            .about-text {
+                max-width: 100%;
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                padding-top: 500px;
+            }
+        }
+        /* ===== SEKCJA Z KORZYŚCIAMI ===== */
+        .features-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #f5f8fb, #ffffff);
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #1a3a52;
+            font-weight: 700;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.03) 0%, rgba(44, 95, 127, 0.03) 100%);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(26, 58, 82, 0.15);
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.05) 0%, rgba(44, 95, 127, 0.05) 100%);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a3a52;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+        
+        /* ===== SEKCJA HARMONOGRAMU ===== */
+        .schedule-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+        }
+        
+        .schedule-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #1a3a52;
+            font-weight: 700;
+        }
+        
+        .schedule-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .schedule-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #d4a24a;
+            box-shadow: 0 2px 10px rgba(26, 58, 82, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .schedule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(26, 58, 82, 0.15);
+        }
+        
+        .schedule-time {
+            font-weight: 700;
+            color: #d4a24a;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .schedule-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a3a52;
+        }
+        
+        .schedule-description {
+            color: #5a6c7d;
+            font-size: 1rem;
+        }
+        
+        /* ===== SEKCJA LOKALIZACJI ===== */
+        .location-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffffff, #f5f8fb);
+        }
+        
+        .location-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #1a3a52;
+            font-weight: 700;
+        }
+        
+        .location-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .location-details {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* ===== SEKCJA DODAJ DO KALENDARZA ===== */
+        .calendar-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 50%, #1a3a52 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .calendar-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .calendar-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .calendar-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* ===== STOPKA ===== */
+        .footer {
+            background: linear-gradient(to bottom, #0d1f2d, #1a3a52);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer p {
+            margin-bottom: 15px;
+        }
+        
+        .footer a {
+            color: #d4a24a;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+            color: #c89338;
+        }
+        
+        /* ===== RESPONSYWNOŚĆ ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+                min-height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero .event-details {
+                font-size: 1rem;
+            }
+            
+            .hero .event-details span {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .about-section h2,
+            .features-section h2,
+            .schedule-section h2,
+            .location-section h2,
+            .calendar-section h2 {
+                font-size: 2rem;
+            }
+            
+            .about-section,
+            .features-section,
+            .schedule-section,
+            .location-section {
+                padding: 60px 20px;
+            }
+            
+            .calendar-section {
+                padding: 60px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .calendar-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .about-content,
+            .feature-card p,
+            .schedule-description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== SEKCJA HERO (GŁÓWNA) ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Młodzi dla obronności</h1>
+            <p class="subtitle">Twoja Siła, Twoja Wiedza, Twój mundur</p>
+            <div class="event-details">
+                <span>📅 9 marca 2025</span>
+                <span>🕐 08:00 - 15:00</span>
+                <span>📍 Zabrze, Teatr Nowy</span>
+            </div>
+            <a href="#calendar" class="btn">Dodaj do kalendarza</a>
+        </div>
+    </section>
+
+    <!-- ===== SEKCJA O WYDARZENIU ===== -->
+    <section class="about-section">
+        <div class="about-content-wrapper">
+            <div class="about-text">
+                <h2>O Wydarzeniu</h2>
+                <div class="about-content">
+                    <p>
+                        <strong>9 marca 2025 roku w Teatrze Nowym w Zabrzu odbędzie się konferencja skierowana do młodzieży szkół ponadpodstawowych oraz doradców zawodowych z placówek oświatowych.</strong>
+                    </p>
+                    
+                    <p>
+                        Wydarzenie, którego organizatorami są Wojskowe Centrum Rekrutacji w Gliwicach, ma na celu przybliżenie oferty edukacyjnej Polskich uczelni wojskowych. Jego uczestnicy poznają m.in. zasady oraz procedurę rekrutacyjną na studia i do klas przygotowania wojskowego.
+                    </p>
+                    
+                    <p>
+                        Uczelnie wojskowe oferują specjalistyczne programy kształcenia w dziedzinach takich jak technika, nauki społeczne, medycyna czy inżynieria. Oprócz rozwoju zawodowego, studia w tych instytucjach zapewniają również możliwość uczestniczenia w praktykach i stażach w jednostkach wojskowych oraz rozwój kompetencji przywódczych i organizacyjnych.
+                    </p>
+                    
+                    <p>
+                        Uczestnicy zapoznają się również z innymi formami rozwoju w Siłach Zbrojnych RP. Oferta edukacyjna obejmuje m.in. bezpłatne zakwaterowanie i wyżywienie, dostęp do materiałów szkoleniowych oraz wynagrodzenie od pierwszego dnia służby. Rozwiązania te umożliwiają podjęcie studiów wojskowych także osobom o ograniczonych możliwościach finansowych.
+                    </p>
+                    
+                    <p>
+                        Podczas konferencji uczniowie będą mieli możliwość spotkania się ze studentami polskich uczelni wojskowych, m.in.:
+                        Akademii Wojsk Lądowych we Wrocławiu,
+                        Wojskowej Akademii Technicznej w Warszawie,
+                        Akademii Marynarki Wojennej w Gdyni,
+                        Lotniczej Akademii Wojskowej w Dęblinie,
+                        Centrum Szkolenia Medycznego (dawniej Wojskowa Akademia Medyczna w Łodzi).
+                    </p>
+                    
+                    <p>
+                        <strong>Udział w konferencji jest bezpłatny.</strong>
+                    </p>
+                    
+                    <p>
+                        Wydarzenie będzie miało formę wykładów oraz otwartych spotkań informacyjnych prowadzonych przez przedstawicieli uczelni wojskowych. Jednym z prelegentów będzie doradca zawodowy z Akademii Marynarki Wojennej w Gdyni, który oprócz wystąpienia w części konferencyjnej poprowadzi również warsztaty dla doradców zawodowych z Państwa szkół oraz regionu.
+                    </p>
+                    
+                    <p>
+                        Udział w warsztatach może być szczególnie wartościowy w kontekście powstających klas mundurowych oraz planowania ścieżek edukacyjno-zawodowych młodzieży.
+                    </p>
+                    
+                    <p>
+                        <strong>W konferencji mogą uczestniczyć również rodzice zainteresowanych uczniów.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCJA KORZYŚCI ===== -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Dlaczego warto wziąć udział?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🫡</div>
+                    <h3>Ścieżka do kariery wojskowej</h3>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Spotkania z żołnierzami i studentami</h3>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">ℹ️</div>
+                    <h3>Informacje o rekrutacji</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCJA HARMONOGRAMU ===== -->
+    <section class="schedule-section">
+        <div class="container">
+            <h2>Harmonogram</h2>
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">08:00 - 08:25</div>
+                    <div class="schedule-title">Przybycie zaproszonych gości</div>
+                    <div class="schedule-description">
+                        przygotowanie stanowisk promocyjnych itp. część organizacyjna
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">08:30 - 09:00</div>
+                    <div class="schedule-title">Uroczyste otwarcie konferencji</div>
+                    <div class="schedule-description">
+                        Powitanie uczestników, wprowadzenie do tematyki
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">09:00 - 09:45</div>
+                    <div class="schedule-title">Wykład - "Młodzi dla obronności"</div>
+                    <div class="schedule-description">
+                        gen. bryg. dr inż. Damian Matysiak - Zastępca Dowódcy Garnizonu Warszawa wykładowca Wojskowej Akademii Technicznej w Warszawie
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">09:50 - 10:15</div>
+                    <div class="schedule-title">Prelekcja doradcy zawodowego</div>
+                    <div class="schedule-description">
+                        Doradca Zawodowy - Wykładowca Akademii Marynarki Wojennej w Gdyni
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:15 - 10:40</div>
+                    <div class="schedule-title">Pułk Reprezentacyjny Wojska Polskiego</div>
+                    <div class="schedule-description">
+                        Żołnierze Pułku Reprezentacyjnego WP
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:40 - 11:00</div>
+                    <div class="schedule-title">Jednostki Specjalne</div>
+                    <div class="schedule-description">
+                        Przedstawiciel Jednostek Specjalnych WP
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:00 - 11:20</div>
+                    <div class="schedule-title">Przerwa</div>
+                    <div class="schedule-description">
+                        zas na zapoznanie się z ofertą punktów informacyjno-rekrutacyjnych
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:25 - 11:50</div>
+                    <div class="schedule-title">Akademii Wojsk Lądowych we Wrocławiu</div>
+                    <div class="schedule-description">
+                        Student - Podchorąży Akademii Wojsk Lądowych
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:50 - 12:15</div>
+                    <div class="schedule-title">Wojskowa Akademia Techniczna w Warszawie</div>
+                    <div class="schedule-description">
+                        Student - Podchorąży Wojskowej Akademii Technicznej
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">12:15 - 12:40</div>
+                    <div class="schedule-title">Lotnicza Akademia Wojskowa w Dęblinie</div>
+                    <div class="schedule-description">
+                        Student - Podchorąży Lotniczej Akademii Wojskowej w Dęblinie
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">12:40 - 13:05</div>
+                    <div class="schedule-title">Akademia Marynarki Wojennej w Gdyni</div>
+                    <div class="schedule-description">
+                        Student - Podchorąży Akademii Marynarki Wojennej w Gdyni
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">13:05 - 13:30</div>
+                    <div class="schedule-title">Akademia Medyczna w Łodzi</div>
+                    <div class="schedule-description">
+                        Student - Podchorąży Akademii Medycznej w Łodzi
+                    </div>
+                </div>
+                 <div class="schedule-item">
+                    <div class="schedule-time">13:30 - 13:40</div>
+                    <div class="schedule-title">Jednostki Specjalne</div>
+                    <div class="schedule-description">
+                        Przedstawiciel Jednostek Specjalnych WP
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">13:40 - 13:40</div>
+                    <div class="schedule-title">Zakończenie wykładów</div>
+                    <div class="schedule-description">
+                        Szef CWCR w Katowicach / Szef WCR w Gliwicach
+                    </div>
+                </div>
+                 <div class="schedule-item">
+                    <div class="schedule-time">13:40 - 15:00</div>
+                    <div class="schedule-title">Spotkania ze studentami na stanowiskach promocyjnych</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCJA LOKALIZACJI ===== -->
+    <section class="location-section">
+        <div class="container">
+            <h2>Lokalizacja</h2>
+            <div class="location-content">
+                <div class="location-details">
+                    <strong>Teatr Nowy</strong><br>
+                    Plac Teatralny 1<br>
+                    41-800 Zabrze<br>
+                    Polska
+                </div>
+                <p>Dogodna lokalizacja w centrum miasta!</p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2547.9412379772853!2d18.78257097665978!3d50.31168867156606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711320cd612af4f%3A0x28db74343acc6f51!2sTeatr%20Nowy%20w%20Zabrzu!5e0!3m2!1spl!2spl!4v1772005394379!5m2!1spl!2spl"
+                        style="border:0;"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCJA DODAJ DO KALENDARZA ===== -->
+    <section class="calendar-section" id="calendar">
+        <div class="container">
+            <h2>📅 Dodaj wydarzenie do swojego kalendarza</h2>
+            <p>Nie przegap tej wyjątkowej okazji! Dodaj wydarzenie do swojego kalendarza jednym kliknięciem.</p>
+            
+            <div class="calendar-buttons">
+                <!-- Przycisk Google Calendar -->
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=M%C5%82odzi+dla+obronno%C5%9Bci+-+Konferencja&dates=20250309T070000Z/20250309T140000Z&details=Konferencja+dla+m%C5%82odzie%C5%BCy+szk%C3%B3%C5%82+ponadpodstawowych+oraz+doradc%C3%B3w+zawodowych.+Uczelnie+wojskowe+prezentuj%C4%85+ofert%C4%99+edukacyjn%C4%85%2C+zasady+rekrutacji+i+formy+rozwoju+w+Si%C5%82ach+Zbrojnych+RP.&location=Teatr+Nowy%2C+Plac+Teatralny+1%2C+41-800+Zabrze%2C+Polska&ctz=Europe/Warsaw" 
+                   target="_blank" 
+                   class="btn btn-calendar">
+                    📅 Google Calendar
+                </a>
+                
+                <!-- Przycisk Outlook -->
+                <a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=M%C5%82odzi+dla+obronno%C5%9Bci+-+Konferencja&startdt=2025-03-09T08:00:00&enddt=2025-03-09T15:00:00&body=Konferencja+dla+m%C5%82odzie%C5%BCy+szk%C3%B3%C5%82+ponadpodstawowych+oraz+doradc%C3%B3w+zawodowych.+Uczelnie+wojskowe+prezentuj%C4%85+ofert%C4%99+edukacyjn%C4%85%2C+zasady+rekrutacji+i+formy+rozwoju+w+Si%C5%82ach+Zbrojnych+RP.&location=Teatr+Nowy%2C+Plac+Teatralny+1%2C+41-800+Zabrze%2C+Polska&path=/calendar/action/compose&rru=addevent" 
+                   target="_blank" 
+                   class="btn btn-calendar">
+                    📧 Outlook
+                </a>
+                
+                <!-- Przycisk pobierz plik .ics (dla Apple Calendar i innych) -->
+                <a href="#" 
+                   onclick="downloadICS(); return false;" 
+                   class="btn btn-calendar">
+                    🍎 Apple Calendar / Inne
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.95rem; opacity: 0.9;">
+                💡 Wybierz swój kalendarz, a wydarzenie zostanie automatycznie dodane z wszystkimi szczegółami!
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== STOPKA ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026</p>
+            <p>
+                Kontakt: <a href="/cdn-cgi/l/email-protection#e592869782898c928c8680cb97808e97909184868f84a5978a8bcb888c89cb9589"><span class="__cf_email__" data-cfemail="0b7c68796c67627c62686e25796e60797e7f6a68616a4b79646525666267257b67">[email&#160;protected]</span></a> | 
+                Tel: 261 124 684
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== SKRYPTY ===== -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Płynne przewijanie do sekcji
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Funkcja do pobrania pliku .ics (dla Apple Calendar i innych kalendarzy)
+        function downloadICS() {
+            // Dane wydarzenia
+            const eventData = {
+                title: 'Młodzi dla obronności - Konferencja',
+                description: 'Konferencja dla młodzieży szkół ponadpodstawowych oraz doradców zawodowych. Uczelnie wojskowe prezentują ofertę edukacyjną, zasady rekrutacji i formy rozwoju w Siłach Zbrojnych RP.',
+                location: 'Teatr Nowy, Plac Teatralny 1, 41-800 Zabrze, Polska',
+                startDate: '20250309T080000',
+                endDate: '20250309T150000',
+                timezone: 'Europe/Warsaw'
+            };
+
+            // Tworzenie zawartości pliku .ics
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Młodzi dla obronności//PL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART;TZID=${eventData.timezone}:${eventData.startDate}
+DTEND;TZID=${eventData.timezone}:${eventData.endDate}
+SUMMARY:${eventData.title}
+DESCRIPTION:${eventData.description}
+LOCATION:${eventData.location}
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:Przypomnienie o wydarzeniu
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+            // Tworzenie i pobieranie pliku
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.
