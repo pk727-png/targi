@@ -880,7 +880,7 @@
                     <div class="legend-icon"></div>
                     <div class="legend-text">Punkt informacyjny</div>
                 </div>
-            -->
+                -->
                 <!-- Dodaj więcej elementów legendy według potrzeb -->
             </div>
         </div>
@@ -951,8 +951,8 @@
         <div class="container">
             <p>&copy; 2026</p>
             <p>
-                Kontakt: | 
-                Tel: 261 684
+                Kontakt: @ | 
+                Tel: 261
             </p>
         </div>
     </footer>
@@ -1010,57 +1010,4 @@ END:VCALENDAR`;
             // Tworzenie i pobieranie pliku
             const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
             const link = document.createElement('a');
-            link.            link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', 'mlodzi-dla-obronnosci.ics');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // ===== FUNKCJE LIGHTBOX (POWIĘKSZANIE OBRAZKÓW) =====
-        function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imageSrc;
-            lightbox.classList.add('active');
-            // Zapobiegaj scrollowaniu w tle
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            // Przywróć scrollowanie
-            document.body.style.overflow = 'auto';
-        }
-
-        // Zamknij lightbox przy kliknięciu ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-
-        // Kliknięcie w plakat na telefonie (pseudo-element wymaga JS)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Dodaj możliwość kliknięcia w plakat na telefonie
-            if (window.innerWidth <= 1024) {
-                const aboutSection = document.querySelector('.about-content-wrapper');
-                if (aboutSection) {
-                    aboutSection.style.cursor = 'pointer';
-                    aboutSection.addEventListener('click', function(e) {
-                        // Sprawdź czy kliknięto w obszar pod tekstem (tam gdzie jest plakat)
-                        const textElement = this.querySelector('.about-text');
-                        const textBottom = textElement.offsetTop + textElement.offsetHeight;
-                        const clickY = e.pageY - this.offsetTop;
-                        
-                        if (clickY > textBottom) {
-                            openLightbox('plakat.png');
-                        }
-                    });
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+            link.
