@@ -155,9 +155,8 @@
         
         @media (max-width: 1024px) {
             .about-section {
-                background: 
-                    linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
-                padding: 80px 20px;
+                background: linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+                padding: 80px 20px 40px 20px;
                 display: block;
                 min-height: auto;
             }
@@ -165,13 +164,31 @@
             .about-text {
                 max-width: 100%;
                 padding-right: 0;
-                margin-bottom: 0;
+                margin-bottom: 40px;
+            }
+            
+            /* Plakat pod tekstem na małych ekranach */
+            .about-content-wrapper::after {
+                content: '';
+                display: block;
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                aspect-ratio: 2/3;
+                margin: 0 auto;
+                background: url('plakat.png') center/contain no-repeat;
+                border-radius: 10px;
+                box-shadow: 0 10px 40px rgba(26, 58, 82, 0.2);
             }
         }
         
         @media (max-width: 768px) {
             .about-section {
-                padding: 60px 20px;
+                padding: 60px 20px 40px 20px;
+            }
+            
+            .about-content-wrapper::after {
+                max-width: 100%;
             }
         }
         /* ===== SEKCJA Z KORZYŚCIAMI ===== */
@@ -863,7 +880,8 @@
                     <div class="legend-icon"></div>
                     <div class="legend-text">Punkt informacyjny</div>
                 </div>
-            -->
+                -->
+                <!-- Dodaj więcej elementów legendy według potrzeb -->
             </div>
         </div>
     </section>
@@ -933,8 +951,8 @@
         <div class="container">
             <p>&copy; 2026</p>
             <p>
-                Kontakt:  | 
-                Tel: 261 
+                Kontakt: @ | 
+                Tel: 261
             </p>
         </div>
     </footer>
