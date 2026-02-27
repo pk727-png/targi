@@ -97,9 +97,9 @@
             background: 
                 linear-gradient(to right, 
                     rgba(235, 240, 245, 0.98) 0%, 
-                    rgba(235, 240, 245, 0.98) 52%, 
-                    transparent 56%),
-                url('plakat.png') calc(100% - 40px) center/auto 85% no-repeat,
+                    rgba(235, 240, 245, 0.98) 50%, 
+                    transparent 54%),
+                url('plakat.png') calc(100% - 30px) center/auto 80% no-repeat,
                 linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
             min-height: 700px;
             display: flex;
@@ -113,8 +113,8 @@
         }
         
         .about-text {
-            max-width: 50%;
-            padding-right: 80px;
+            max-width: 48%;
+            padding-right: 100px;
         }
         
         .about-section h2 {
@@ -136,23 +136,56 @@
         }
 
         /* Responsywność */
-        @media (max-width: 968px) {
+        @media (max-width: 1200px) {
             .about-section {
-                background: url('plakat.png') top center/contain no-repeat, 
-                            linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
-                padding: 650px 20px 80px 20px;
+                background: 
+                    linear-gradient(to right, 
+                        rgba(235, 240, 245, 0.98) 0%, 
+                        rgba(235, 240, 245, 0.98) 48%, 
+                        transparent 52%),
+                    url('plakat.jpg') calc(100% - 20px) center/auto 75% no-repeat,
+                    linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+            }
+            
+            .about-text {
+                max-width: 46%;
+                padding-right: 80px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .about-section {
+                background: 
+                    rgba(235, 240, 245, 0.98),
+                    linear-gradient(135deg, #e8eef3 0%, #dce5ed 100%);
+                padding: 80px 20px;
                 display: block;
+                min-height: auto;
             }
             
             .about-text {
                 max-width: 100%;
                 padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .about-text::after {
+                content: '';
+                display: block;
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                aspect-ratio: 2/3;
+                margin: 40px auto 0;
+                background: url('plakat.png') center/contain no-repeat;
+                border-radius: 10px;
+                box-shadow: 0 10px 40px rgba(26, 58, 82, 0.2);
             }
         }
         
         @media (max-width: 768px) {
-            .about-section {
-                padding-top: 500px;
+            .about-text::after {
+                max-width: 100%;
             }
         }
         /* ===== SEKCJA Z KORZYŚCIAMI ===== */
@@ -702,7 +735,7 @@
         <div class="container">
             <p>&copy; 2026</p>
             <p>
-                Kontakt: <a href="mailto:wcrgliwice.rekrutacja@ron.mil.pl">wcrgliwice.rekrutacja@ron.mil.pl</a>  
+                Kontakt: <a href="/cdn-cgi/l/email-protection#e592869782898c928c8680cb97808e97909184868f84a5978a8bcb888c89cb9589"><span class="__cf_email__" data-cfemail="0b7c68796c67627c62686e25796e60797e7f6a68616a4b79646525666267257b67">[email&#160;protected]</span></a> | 
                 Tel: 261 124 684
             </p>
         </div>
